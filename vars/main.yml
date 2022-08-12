@@ -13,3 +13,7 @@ ruby_gem_files:
 locale_files:
   - "locale.conf"
   - "locale.gen"
+
+vconsole_files:
+  - "vconsole.conf"
+vconsole_keymap: "de-latin1-nodeadkeys"
