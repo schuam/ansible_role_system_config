@@ -6,3 +6,6 @@ monitor_hotplug_dirs:
 monitor_hotplug_files:
   - "systemd/system/monitor-hotplug.service"
   - "udev/rules.d/95-external-monitors.rules"
+
+ruby_gem_files:
+  - "gemrc"

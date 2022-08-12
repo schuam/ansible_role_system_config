@@ -1,2 +1,3 @@
 ---
 configure_monitor_hotplug: true
+configure_ruby_gem: true
