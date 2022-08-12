@@ -1,0 +1,7 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - name: "Include schuam.system_config"
+      include_role:
+        name: "schuam.system_config"
