@@ -1,2 +1,5 @@
 ---
-# handlers file for system_config
+- name: generate_locale
+  ansible.builtin.command: locale-gen
+  changed_when: false
+  become: true

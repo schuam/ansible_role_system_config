@@ -9,3 +9,7 @@ monitor_hotplug_files:
 
 ruby_gem_files:
   - "gemrc"
+
+locale_files:
+  - "locale.conf"
+  - "locale.gen"
