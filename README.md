@@ -1,38 +1,80 @@
-Role Name
-=========
+# Ansible Role: System Config
 
-A brief description of the role goes here.
+This role can be used to make some system configurations (placing system
+configuration files into /etc/. It might be pretty specific for my personal
+computer/laptop setup, but maybe someone else has a use for it as well, or
+takes it as a starting point to configure their own system.
 
-Requirements
-------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+## Requirements
 
-Role Variables
---------------
+I use the monitor hotplug setup in order to configure my system in such a way
+that attaching/detaching HDMI monitors is automatically detected and my screen
+setup is automatically adjusted. This includes a systemd service, a udev rule,
+and some additional scripts. I wrote a more detailed explanation about my
+monitor hotplug setup that can be found
+[here](https://schuam.de/en/posts/82276148b1.html).
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+If you want to use my setup. You will have to do the following:
 
-Dependencies
-------------
+- Adjust the path to the monitor_connection_change.sh script in
+  files/etc/systemd/system/monitor-hotplug.service.
+- Get the following scrtips from my
+  [dotfiles](https://github.com/schuam/.dotfiles/):
+  - .config/startup/monitor_connection_change.sh
+  - .config/startup/startup_screen_setup.sh
+- Adjust some lines in these two scripts that contain paths.
+- Write **xrandr** scripts to actually adjust your screen setup. These scripts
+  are called from within startup_screen_setup.sh. You can also generate these
+  scripts with the program **arandr**.
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+Sorry, that this might be a little complicated, but I set this up a while back
+for myself and haven't found the time to think about how to make it more
+convenient for others.
 
-Example Playbook
-----------------
+Other than that the rest of the system config role should work out of the box.
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
 
-    - hosts: servers
+## Role Variables
+
+The following variables can be found in vars/main.yml:
+
+- monitor_hotplug_dirs: List of directories under /etc/ that are needed.
+- monitor_hotplug_files List of files for my monitor hotplug configuration.
+- ruby_gem_files: List of files for ruby gem configuration.
+- locale_files: List of files for the locale configuration.
+- vconsole_files: List of files for the vconsole configuration.
+
+
+The following variables can be found in defaults/main.yml. The first ones
+starting with "configure" can be set to true or false, depending on if you want
+to configure the respective part. The last one it the preferred vconsole
+keymap.
+
+- configure_monitor_hotplug
+- configure_ruby_gem
+- configure_locale
+- configure_vconsole
+- vconsole_keymap
+
+
+## Dependencies
+
+None
+
+
+## Example Playbook
+
+    - hosts: localhost
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: schuam.system_config }
 
-License
--------
+## License
 
-BSD
+MIT
 
-Author Information
-------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+## Author Information
+
+This role was created in 2022 by [Andreas Schuster](https://www.schuam.de/).
+
