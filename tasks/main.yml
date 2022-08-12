@@ -1,2 +1,26 @@
 ---
-# tasks file for system_config
+- name: Ensure directories for monitor hotplug exist.
+  ansible.builtin.file:
+    path: "etc/{{ item }}"
+    state: directory
+    group: root
+    owner: root
+    mode: "0755"
+  loop: "{{ monitor_hotplug_dirs }}"
+  loop_control:
+    label: "{{ item }}"
+  become: true
+  when: configure_monitor_hotplug is truthy(convert_bool=True)
+
+- name: Enable monitor hotplug.
+  ansible.builtin.copy:
+    src: "files/etc/{{ item }}"
+    dest: "/etc/{{ item }}"
+    group: root
+    owner: root
+    mode: "0755"
+  loop: "{{ monitor_hotplug_files }}"
+  loop_control:
+    label: "{{ item }}"
+  become: true
+  when: configure_monitor_hotplug is truthy(convert_bool=True)

@@ -1,2 +1,8 @@
 ---
-# vars file for system_config
+monitor_hotplug_dirs:
+  - "systemd/system"
+  - "udev/rules.d"
+
+monitor_hotplug_files:
+  - "systemd/system/monitor-hotplug.service"
+  - "udev/rules.d/95-external-monitors.rules"
