@@ -16,4 +16,3 @@ locale_files:
 
 vconsole_files:
   - "vconsole.conf"
-vconsole_keymap: "de-latin1-nodeadkeys"
