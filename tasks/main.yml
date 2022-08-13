@@ -1,2 +1,6 @@
 ---
-# tasks file for system_config
+- import_tasks: configure_monitor_hotplug.yml
+- import_tasks: configure_x11.yml
+- import_tasks: configure_ruby_gem.yml
+- import_tasks: configure_locale.yml
+- import_tasks: configure_vconsole.yml

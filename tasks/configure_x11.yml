@@ -1,0 +1,26 @@
+---
+- name: Ensure directories for X11 configuration exist.
+  ansible.builtin.file:
+    path: "etc/{{ item }}"
+    state: directory
+    group: root
+    owner: root
+    mode: "0755"
+  loop: "{{ x11_dirs }}"
+  loop_control:
+    label: "{{ item }}"
+  become: true
+  when: configure_x11 is truthy(convert_bool=True)
+
+- name: Configure X11.
+  ansible.builtin.copy:
+    src: "files/etc/{{ item }}"
+    dest: "/etc/{{ item }}"
+    group: root
+    owner: root
+    mode: "0755"
+  loop: "{{ x11_files }}"
+  loop_control:
+    label: "{{ item }}"
+  become: true
+  when: configure_x11 is truthy(convert_bool=True)

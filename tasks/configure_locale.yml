@@ -1,0 +1,14 @@
+---
+- name: Configure locale.
+  ansible.builtin.copy:
+    src: "files/etc/{{ item }}"
+    dest: "etc/{{ item }}"
+    group: root
+    owner: root
+    mode: "0755"
+  loop: "{{ locale_files }}"
+  loop_control:
+    label: "{{ item }}"
+  become: true
+  when: configure_locale is truthy(convert_bool=True)
+  notify: generate_locale

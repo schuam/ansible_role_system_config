@@ -1,2 +1,25 @@
 ---
-# vars file for system_config
+monitor_hotplug_dirs:
+  - "systemd/system"
+  - "udev/rules.d"
+
+monitor_hotplug_files:
+  - "systemd/system/monitor-hotplug.service"
+  - "udev/rules.d/95-external-monitors.rules"
+
+x11_dirs:
+  - "X11/xorg.conf.d"
+
+x11_files:
+  - "X11/xorg.conf.d/00-keyboard.conf"
+  - "X11/xorg.conf.d/20-{{ x11_graphics_card }}.conf"
+
+ruby_gem_files:
+  - "gemrc"
+
+locale_files:
+  - "locale.conf"
+  - "locale.gen"
+
+vconsole_files:
+  - "vconsole.conf"

@@ -1,0 +1,13 @@
+---
+- name: Configure ruby gem.
+  ansible.builtin.copy:
+    src: "files/etc/{{ item }}"
+    dest: "/etc/{{ item }}"
+    group: root
+    owner: root
+    mode: "0755"
+  loop: "{{ ruby_gem_files }}"
+  loop_control:
+    label: "{{ item }}"
+  become: true
+  when: configure_ruby_gem is truthy(convert_bool=True)
