@@ -1,9 +1,13 @@
 ---
 # Which parts should be configured.
 configure_monitor_hotplug: true
+configure_x11: true
 configure_ruby_gem: true
 configure_locale: true
 configure_vconsole: true
 
 # Which keymap to use for vconsole.
 vconsole_keymap: "de-latin1-nodeadkeys"
+
+# Which kind of graphics card is installed [intel | amdgpu].
+x11_graphics_card: "intel"

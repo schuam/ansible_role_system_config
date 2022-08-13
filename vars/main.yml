@@ -7,6 +7,13 @@ monitor_hotplug_files:
   - "systemd/system/monitor-hotplug.service"
   - "udev/rules.d/95-external-monitors.rules"
 
+x11_dirs:
+  - "X11/xorg.conf.d"
+
+x11_files:
+  - "X11/xorg.conf.d/00-keyboard.conf"
+  - "X11/xorg.conf.d/20-{{ x11_graphics_card }}.conf"
+
 ruby_gem_files:
   - "gemrc"
 
