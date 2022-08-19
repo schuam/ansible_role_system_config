@@ -32,6 +32,11 @@ Sorry, that this might be a little complicated, but I set this up a while back
 for myself and haven't found the time to think about how to make it more
 convenient for others.
 
+For the sshd configuration, **openssh** has to be installed, and **systemd**
+has to be up and running. Otherwise the corresponding tasks  and the restart
+handler will fail. You can prevent the role from trying to configure sshd by
+setting configure_sshd to false.
+
 Other than that the rest of the system config role should work out of the box.
 
 
