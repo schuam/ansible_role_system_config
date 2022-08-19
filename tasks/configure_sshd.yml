@@ -7,6 +7,7 @@
     path: /etc/ssh/sshd_config
     regex: "^#?PubkeyAuthentication [yes|no]"
     state: present
+  when: configure_sshd is truthy(convert_bool=True)
 
 - name: "[sshd] Disallow password authentication."
   ansible.builtin.lineinfile:
@@ -16,6 +17,7 @@
     path: /etc/ssh/sshd_config
     regex: "^#?PasswordAuthentication [yes|no]"
     state: present
+  when: configure_sshd is truthy(convert_bool=True)
 
 - name: "[sshd] Allow agent forwarding."
   ansible.builtin.lineinfile:
@@ -25,3 +27,4 @@
     path: /etc/ssh/sshd_config
     regex: "^#?AllowAgentForwarding [yes|no]"
     state: present
+  when: configure_sshd is truthy(convert_bool=True)
