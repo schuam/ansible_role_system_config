@@ -1,0 +1,27 @@
+---
+- name: "[sshd] Allow public key authentication."
+  ansible.builtin.lineinfile:
+    backup: true
+    create: false
+    line: "PubkeyAuthentication yes"
+    path: /etc/ssh/sshd_config
+    regex: "^#?PubkeyAuthentication [yes|no]"
+    state: present
+
+- name: "[sshd] Disallow password authentication."
+  ansible.builtin.lineinfile:
+    backup: true
+    create: false
+    line: "PasswordAuthentication no"
+    path: /etc/ssh/sshd_config
+    regex: "^#?PasswordAuthentication [yes|no]"
+    state: present
+
+- name: "[sshd] Allow agent forwarding."
+  ansible.builtin.lineinfile:
+    backup: true
+    create: false
+    line: "AllowAgentForwarding yes"
+    path: /etc/ssh/sshd_config
+    regex: "^#?AllowAgentForwarding [yes|no]"
+    state: present

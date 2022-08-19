@@ -4,3 +4,4 @@
 - import_tasks: configure_ruby_gem.yml
 - import_tasks: configure_locale.yml
 - import_tasks: configure_vconsole.yml
+- import_tasks: configure_sshd.yml
