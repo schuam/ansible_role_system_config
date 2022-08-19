@@ -8,6 +8,7 @@
     regex: "^#?PubkeyAuthentication [yes|no]"
     state: present
   when: configure_sshd is truthy(convert_bool=True)
+  notify: restart_sshd
 
 - name: "[sshd] Disallow password authentication."
   ansible.builtin.lineinfile:
@@ -18,6 +19,7 @@
     regex: "^#?PasswordAuthentication [yes|no]"
     state: present
   when: configure_sshd is truthy(convert_bool=True)
+  notify: restart_sshd
 
 - name: "[sshd] Allow agent forwarding."
   ansible.builtin.lineinfile:
@@ -28,3 +30,4 @@
     regex: "^#?AllowAgentForwarding [yes|no]"
     state: present
   when: configure_sshd is truthy(convert_bool=True)
+  notify: restart_sshd
