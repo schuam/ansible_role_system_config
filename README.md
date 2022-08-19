@@ -40,7 +40,9 @@ Other than that the rest of the system config role should work out of the box.
 The following variables can be found in vars/main.yml:
 
 - monitor_hotplug_dirs: List of directories under /etc/ that are needed.
-- monitor_hotplug_files List of files for my monitor hotplug configuration.
+- monitor_hotplug_files: List of files for my monitor hotplug configuration.
+- x11_dirs: List of X11 directories that are needed under /etc/.
+- x11_files: List of files for my X11 configuration.
 - ruby_gem_files: List of files for ruby gem configuration.
 - locale_files: List of files for the locale configuration.
 - vconsole_files: List of files for the vconsole configuration.
@@ -48,14 +50,18 @@ The following variables can be found in vars/main.yml:
 
 The following variables can be found in defaults/main.yml. The first ones
 starting with "configure" can be set to true or false, depending on if you want
-to configure the respective part. The last one it the preferred vconsole
-keymap.
+to configure the respective part. The second to last one is the preferred
+vconsole keymap. The last one indicates the kind of graphics card that is
+installed.
 
 - configure_monitor_hotplug
+- configure_x11
 - configure_ruby_gem
 - configure_locale
 - configure_vconsole
+- configure_sshd
 - vconsole_keymap
+- x11_graphics_card
 
 
 ## Dependencies
