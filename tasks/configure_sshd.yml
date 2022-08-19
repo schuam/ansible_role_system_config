@@ -23,6 +23,30 @@
   notify: restart_sshd
   become: true
 
+- name: "[sshd] Disallow empty passwords."
+  ansible.builtin.lineinfile:
+    backup: true
+    create: false
+    line: "PermitEmptyPasswords no"
+    path: /etc/ssh/sshd_config
+    regex: "^#?PermitEmptyPasswords [yes|no]"
+    state: present
+  when: configure_sshd is truthy(convert_bool=True)
+  notify: restart_sshd
+  become: true
+
+- name: "[sshd] Disallow root login."
+  ansible.builtin.lineinfile:
+    backup: true
+    create: false
+    line: "PermitRootLogin no"
+    path: /etc/ssh/sshd_config
+    regex: "^#?PermitRootLogin .+"
+    state: present
+  when: configure_sshd is truthy(convert_bool=True)
+  notify: restart_sshd
+  become: true
+
 - name: "[sshd] Allow agent forwarding."
   ansible.builtin.lineinfile:
     backup: true
