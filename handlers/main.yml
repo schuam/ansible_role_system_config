@@ -3,3 +3,9 @@
   ansible.builtin.command: locale-gen
   changed_when: false
   become: true
+
+- name: restart_sshd
+  ansible.builtin.service:
+    name: sshd
+    state: restarted
+  become: true

@@ -1,0 +1,60 @@
+---
+- name: "[sshd] Allow public key authentication."
+  ansible.builtin.lineinfile:
+    backup: true
+    create: false
+    line: "PubkeyAuthentication yes"
+    path: /etc/ssh/sshd_config
+    regex: "^#?PubkeyAuthentication [yes|no]"
+    state: present
+  when: configure_sshd is truthy(convert_bool=True)
+  notify: restart_sshd
+  become: true
+
+- name: "[sshd] Disallow password authentication."
+  ansible.builtin.lineinfile:
+    backup: true
+    create: false
+    line: "PasswordAuthentication no"
+    path: /etc/ssh/sshd_config
+    regex: "^#?PasswordAuthentication [yes|no]"
+    state: present
+  when: configure_sshd is truthy(convert_bool=True)
+  notify: restart_sshd
+  become: true
+
+- name: "[sshd] Disallow empty passwords."
+  ansible.builtin.lineinfile:
+    backup: true
+    create: false
+    line: "PermitEmptyPasswords no"
+    path: /etc/ssh/sshd_config
+    regex: "^#?PermitEmptyPasswords [yes|no]"
+    state: present
+  when: configure_sshd is truthy(convert_bool=True)
+  notify: restart_sshd
+  become: true
+
+- name: "[sshd] Disallow root login."
+  ansible.builtin.lineinfile:
+    backup: true
+    create: false
+    line: "PermitRootLogin no"
+    path: /etc/ssh/sshd_config
+    regex: "^#?PermitRootLogin .+"
+    state: present
+  when: configure_sshd is truthy(convert_bool=True)
+  notify: restart_sshd
+  become: true
+
+- name: "[sshd] Allow agent forwarding."
+  ansible.builtin.lineinfile:
+    backup: true
+    create: false
+    line: "AllowAgentForwarding yes"
+    path: /etc/ssh/sshd_config
+    regex: "^#?AllowAgentForwarding [yes|no]"
+    state: present
+  when: configure_sshd is truthy(convert_bool=True)
+  notify: restart_sshd
+  become: true
