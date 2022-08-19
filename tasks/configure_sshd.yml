@@ -9,6 +9,7 @@
     state: present
   when: configure_sshd is truthy(convert_bool=True)
   notify: restart_sshd
+  become: true
 
 - name: "[sshd] Disallow password authentication."
   ansible.builtin.lineinfile:
@@ -20,6 +21,7 @@
     state: present
   when: configure_sshd is truthy(convert_bool=True)
   notify: restart_sshd
+  become: true
 
 - name: "[sshd] Allow agent forwarding."
   ansible.builtin.lineinfile:
@@ -31,3 +33,4 @@
     state: present
   when: configure_sshd is truthy(convert_bool=True)
   notify: restart_sshd
+  become: true
