@@ -2,7 +2,7 @@
 - name: Configure locale.
   ansible.builtin.copy:
     src: "files/etc/{{ item }}"
-    dest: "etc/{{ item }}"
+    dest: "/etc/{{ item }}"
     group: root
     owner: root
     mode: "0755"
