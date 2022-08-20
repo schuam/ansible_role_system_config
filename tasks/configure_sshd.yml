@@ -1,7 +1,6 @@
 ---
 - name: "[sshd] Allow public key authentication."
   ansible.builtin.lineinfile:
-    backup: true
     create: false
     line: "PubkeyAuthentication yes"
     path: /etc/ssh/sshd_config
@@ -13,7 +12,6 @@
 
 - name: "[sshd] Disallow password authentication."
   ansible.builtin.lineinfile:
-    backup: true
     create: false
     line: "PasswordAuthentication no"
     path: /etc/ssh/sshd_config
@@ -25,7 +23,6 @@
 
 - name: "[sshd] Disallow empty passwords."
   ansible.builtin.lineinfile:
-    backup: true
     create: false
     line: "PermitEmptyPasswords no"
     path: /etc/ssh/sshd_config
@@ -37,7 +34,6 @@
 
 - name: "[sshd] Disallow root login."
   ansible.builtin.lineinfile:
-    backup: true
     create: false
     line: "PermitRootLogin no"
     path: /etc/ssh/sshd_config
@@ -49,7 +45,6 @@
 
 - name: "[sshd] Allow agent forwarding."
   ansible.builtin.lineinfile:
-    backup: true
     create: false
     line: "AllowAgentForwarding yes"
     path: /etc/ssh/sshd_config
