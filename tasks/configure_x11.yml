@@ -18,7 +18,7 @@
     dest: "/etc/{{ item }}"
     group: root
     owner: root
-    mode: "0755"
+    mode: "0644"
   loop: "{{ x11_files }}"
   loop_control:
     label: "{{ item }}"
