@@ -57,9 +57,10 @@ The following variables can be found in `vars/main.yml`:
 
 The following variables can be found in `defaults/main.yml`. The first ones
 starting with "configure" can be set to true or false, depending on if you want
-to configure the respective part. The second to last one is the preferred
-vconsole keymap. The last one indicates the kind of graphics card that is
-installed.
+to configure the respective part. The third one from the bottom  is the
+preferred vconsole keymap. The second to last one indicates the kind of
+graphics card that is installed. And the last one the hostname that is to be
+set. You should definitely overwrite that one, when using the role.
 
 - configure_monitor_hotplug
 - configure_x11
@@ -67,8 +68,10 @@ installed.
 - configure_locale
 - configure_vconsole
 - configure_sshd
+- configure_hostname
 - vconsole_keymap
 - x11_graphics_card
+- hostname
 
 
 ## Dependencies

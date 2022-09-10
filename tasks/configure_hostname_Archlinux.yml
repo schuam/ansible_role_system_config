@@ -1,0 +1,15 @@
+---
+- name: Configure hostname.
+  ansible.builtin.template:
+    src: "templates/etc/{{ item }}.j2"
+    dest: "/etc/{{ item }}"
+    group: root
+    owner: root
+    mode: "0644"
+    force: true
+    unsafe_writes: true
+  loop: "{{ hostname_files }}"
+  loop_control:
+    label: "{{ item }}"
+  become: true
+  when: configure_hostname is truthy(convert_bool=True)

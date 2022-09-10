@@ -23,3 +23,7 @@ locale_files:
 
 vconsole_files:
   - "vconsole.conf"
+
+hostname_files:
+  - "hostname"
+  - "hosts"

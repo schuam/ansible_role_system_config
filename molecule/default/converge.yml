@@ -1,6 +1,13 @@
 ---
 - name: Converge
   hosts: all
+
+  vars_prompt:
+    - name: hostname
+      prompt: "What should the hostname be?"
+      private: true
+      confirm: true
+
   tasks:
     - name: "Include schuam.system_config"
       ansible.builtin.include_role:
