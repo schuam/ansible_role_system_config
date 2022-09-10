@@ -1,0 +1,3 @@
+---
+- name: Include OS-specific tasks.
+  ansible.builtin.include_tasks: configure_hostname_{{ ansible_os_family }}.yml
