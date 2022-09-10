@@ -5,3 +5,4 @@
 - import_tasks: configure_sshd.yml
 - import_tasks: configure_vconsole.yml
 - import_tasks: configure_x11.yml
+- import_tasks: configure_hostname.yml

@@ -6,9 +6,13 @@ configure_ruby_gem: true
 configure_locale: true
 configure_vconsole: true
 configure_sshd: true
+configure_hostname: true
 
 # Which keymap to use for vconsole.
 vconsole_keymap: "de-latin1-nodeadkeys"
 
 # Which kind of graphics card is installed [intel | amdgpu].
 x11_graphics_card: "intel"
+
+# Default hosename, if none is given later on.
+hostname: "laptop"
