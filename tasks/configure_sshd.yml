@@ -1,5 +1,5 @@
 ---
-- name: "[sshd] Allow public key authentication."
+- name: "Allow public key authentication (sshd)."
   ansible.builtin.lineinfile:
     create: false
     line: "PubkeyAuthentication yes"
@@ -10,7 +10,7 @@
   notify: restart_sshd
   become: true
 
-- name: "[sshd] Disallow password authentication."
+- name: "Disallow password authentication (sshd)."
   ansible.builtin.lineinfile:
     create: false
     line: "PasswordAuthentication no"
@@ -21,7 +21,7 @@
   notify: restart_sshd
   become: true
 
-- name: "[sshd] Disallow empty passwords."
+- name: "Disallow empty passwords (sshd)."
   ansible.builtin.lineinfile:
     create: false
     line: "PermitEmptyPasswords no"
@@ -32,7 +32,7 @@
   notify: restart_sshd
   become: true
 
-- name: "[sshd] Disallow root login."
+- name: "Disallow root login (sshd)."
   ansible.builtin.lineinfile:
     create: false
     line: "PermitRootLogin no"
@@ -43,7 +43,7 @@
   notify: restart_sshd
   become: true
 
-- name: "[sshd] Allow agent forwarding."
+- name: "Allow agent forwarding (sshd)."
   ansible.builtin.lineinfile:
     create: false
     line: "AllowAgentForwarding yes"
