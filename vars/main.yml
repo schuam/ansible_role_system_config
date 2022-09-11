@@ -12,7 +12,7 @@ x11_dirs:
 
 x11_files:
   - "X11/xorg.conf.d/00-keyboard.conf"
-  - "X11/xorg.conf.d/20-{{ x11_graphics_card }}.conf"
+  - "X11/xorg.conf.d/20-{{ graphics_card_type }}.conf"
 
 ruby_gem_files:
   - "gemrc"

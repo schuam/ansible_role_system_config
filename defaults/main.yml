@@ -12,7 +12,7 @@ configure_hostname: true
 vconsole_keymap: "de-latin1-nodeadkeys"
 
 # Which kind of graphics card is installed [intel | amdgpu].
-x11_graphics_card: "intel"
+graphics_card_type: "intel"
 
 # Default hosename, if none is given later on.
 hostname: "laptop"

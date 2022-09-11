@@ -70,7 +70,7 @@ set. You should definitely overwrite that one, when using the role.
 - configure_sshd
 - configure_hostname
 - vconsole_keymap
-- x11_graphics_card
+- graphics_card_type
 - hostname
 
 
