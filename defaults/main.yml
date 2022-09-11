@@ -1,12 +1,17 @@
 ---
 # Which parts should be configured.
-configure_monitor_hotplug: true
-configure_x11: true
-configure_ruby_gem: true
-configure_locale: true
-configure_vconsole: true
-configure_sshd: true
 configure_hostname: true
+configure_locale: true
+configure_monitor_hotplug: true
+configure_ruby_gem: true
+configure_sshd: true
+configure_timezone: true
+configure_vconsole: true
+configure_x11: true
+
+# Archlinux: Relative path to timezone information file. Starting point is
+# /usr/share/zoneinfo/
+timezone_rel_path: "Europe/Berlin"
 
 # Which keymap to use for vconsole.
 vconsole_keymap: "de-latin1-nodeadkeys"

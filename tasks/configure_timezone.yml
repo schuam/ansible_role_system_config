@@ -1,0 +1,9 @@
+---
+- name: Configure timezone
+  ansible.builtin.file:
+    src: "/usr/share/zoneinfo/{{ timezone_rel_path }}"
+    dest: "/etc/localtime"
+    state: link
+  become: true
+  when: ansible_os_family == "Archlinux" and
+        configure_timezone is truthy(convert_bool=True)
