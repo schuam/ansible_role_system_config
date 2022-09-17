@@ -1,7 +1,7 @@
 ---
 - name: Ensure directories for X11 configuration exist.
   ansible.builtin.file:
-    path: "etc/{{ item }}"
+    path: "/etc/{{ item }}"
     state: directory
     group: root
     owner: root
