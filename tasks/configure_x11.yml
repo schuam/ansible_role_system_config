@@ -13,12 +13,14 @@
   when: configure_x11 is truthy(convert_bool=True)
 
 - name: Configure X11.
-  ansible.builtin.copy:
-    src: "files/etc/{{ item }}"
+  ansible.builtin.template:
+    src: "templates/etc/{{ item }}"
     dest: "/etc/{{ item }}"
     group: root
     owner: root
     mode: "0644"
+    force: true
+    unsafe_writes: true
   loop: "{{ x11_files }}"
   loop_control:
     label: "{{ item }}"
