@@ -2,17 +2,17 @@
 dependency:
   name: galaxy
 driver:
-  name: docker
+  name: podman
 lint: |
   set -e
   yamllint .
   ansible-lint
 platforms:
   - name: ubuntu
-    image: "schuam/docker_ubuntu2204_ansible"
+    image: "schuam/podman_ubuntu2204_ansible"
     pre_build_image: true
   - name: arch
-    image: "schuam/docker_archlinux_ansible"
+    image: "schuam/podman_archlinux_ansible"
     pre_build_image: true
 provisioner:
   name: ansible
