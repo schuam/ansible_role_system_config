@@ -19,5 +19,9 @@ vconsole_keymap: "de-latin1-nodeadkeys"
 # Which kind of graphics card is installed [intel | amdgpu].
 graphics_card_type: "intel"
 
+# Which graphics card driver to use (with intel you might want to fall back to
+# the modesetting driver from the X server) [intel | modesetting | amdgup].
+graphics_card_driver: "intel"
+
 # Default hosename, if none is given later on.
 hostname: "laptop"
