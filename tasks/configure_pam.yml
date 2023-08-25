@@ -1,0 +1,30 @@
+---
+# These tasks are used to configure PAM. Actually I don't really want to
+# configure PAM that much, but I want to enable the automatic unlocking of my
+# gnome-keyring and that is done with the help of PAM.
+
+- name: Ensure directories for PAM configuration exist.
+  ansible.builtin.file:
+    path: "/etc/{{ item }}"
+    state: directory
+    group: root
+    owner: root
+    mode: "0755"
+  loop: "{{ pam_dirs }}"
+  loop_control:
+    label: "{{ item }}"
+  become: true
+  when: configure_pam is truthy(convert_bool=True)
+
+- name: Configure PAM.
+  ansible.builtin.copy:
+    src: "files/etc/{{ item }}"
+    dest: "/etc/{{ item }}"
+    group: root
+    owner: root
+    mode: "0644"
+  loop: "{{ pam_files }}"
+  loop_control:
+    label: "{{ item }}"
+  become: true
+  when: configure_pam is truthy(convert_bool=True)

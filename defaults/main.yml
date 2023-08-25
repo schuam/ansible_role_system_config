@@ -3,6 +3,7 @@
 configure_hostname: true
 configure_locale: true
 configure_monitor_hotplug: true
+configure_pam: true
 configure_ruby_gem: true
 configure_sshd: true
 configure_timezone: true

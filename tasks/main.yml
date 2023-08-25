@@ -2,6 +2,7 @@
 - import_tasks: configure_hostname.yml
 - import_tasks: configure_locale.yml
 - import_tasks: configure_monitor_hotplug.yml
+- import_tasks: configure_pam.yml
 - import_tasks: configure_ruby_gem.yml
 - import_tasks: configure_sshd.yml
 - import_tasks: configure_timezone.yml

@@ -8,9 +8,9 @@ lint: |
   yamllint .
   ansible-lint
 platforms:
-  - name: ubuntu
-    image: "schuam/podman_ubuntu2204_ansible"
-    pre_build_image: true
+  # - name: ubuntu
+  #   image: "schuam/podman_ubuntu2204_ansible"
+  #   pre_build_image: true
   - name: arch
     image: "schuam/podman_archlinux_ansible"
     pre_build_image: true

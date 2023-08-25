@@ -1,4 +1,8 @@
 ---
+locale_files:
+  - "locale.conf"
+  - "locale.gen"
+
 monitor_hotplug_dirs:
   - "systemd/system"
   - "udev/rules.d"
@@ -7,19 +11,21 @@ monitor_hotplug_files:
   - "systemd/system/monitor-hotplug.service"
   - "udev/rules.d/95-external-monitors.rules"
 
+pam_dirs:
+  - "pam.d"
+
+pam_files:
+  - "pam.d/login"
+
+ruby_gem_files:
+  - "gemrc"
+
 x11_dirs:
   - "X11/xorg.conf.d"
 
 x11_files:
   - "X11/xorg.conf.d/00-keyboard.conf"
   - "X11/xorg.conf.d/20-{{ graphics_card_type }}.conf"
-
-ruby_gem_files:
-  - "gemrc"
-
-locale_files:
-  - "locale.conf"
-  - "locale.gen"
 
 vconsole_files:
   - "vconsole.conf"
